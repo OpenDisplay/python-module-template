@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 """Post-generation hook for cookiecutter template."""
 import os
+import subprocess
 import urllib.request
 
 LICENSE_URLS = {
@@ -42,11 +43,28 @@ def write_license(license_id: str, year: str) -> None:
 
 write_license("{{cookiecutter.license}}", "{{cookiecutter.__year}}")
 
+
+def init_git() -> None:
+    try:
+        subprocess.run(["git", "init"], check=True, capture_output=True)
+        subprocess.run(["git", "add", "."], check=True, capture_output=True)
+        subprocess.run(
+            ["git", "commit", "-m", "chore: initial commit"],
+            check=True,
+            capture_output=True,
+        )
+    except subprocess.CalledProcessError as e:
+        print(f"⚠️  Could not initialise git repo: {e}")
+    except FileNotFoundError:
+        print("⚠️  git not found — skipping repo initialisation.")
+
+
+init_git()
+
 print("✅ Project generated successfully!")
 print(f"📁 Project: {os.getcwd()}")
 print(f"📄 License: {{cookiecutter.license}}")
 print("\n📝 Next steps:")
 print("  1. cd {{cookiecutter.project_slug}}")
-print("  2. git init && git add . && git commit -m 'chore: initial commit'")
-print("  3. uv sync --all-extras")
-print("  4. Start coding!")
+print("  2. uv sync --all-extras")
+print("  3. Start coding!")
