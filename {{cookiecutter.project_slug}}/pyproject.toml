@@ -40,9 +40,9 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://opendisplay.org"
-Repository = "https://github.com/OpenDisplay-org/{{cookiecutter.project_slug}}"
-Documentation = "https://github.com/OpenDisplay-org/{{cookiecutter.project_slug}}#readme"
+Homepage = "{% if cookiecutter.github_username == 'OpenDisplay' %}https://opendisplay.org{% else %}https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}{% endif %}"
+Repository = "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}"
+Documentation = "https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}#readme"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/{{cookiecutter.package_name}}"]

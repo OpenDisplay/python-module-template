@@ -4,9 +4,9 @@
 
 [![PyPI](https://img.shields.io/pypi/v/{{cookiecutter.project_slug}}?style=flat-square)](https://pypi.org/project/{{cookiecutter.project_slug}}/)
 [![Python](https://img.shields.io/pypi/pyversions/{{cookiecutter.project_slug}}?style=flat-square)](https://pypi.org/project/{{cookiecutter.project_slug}}/)
-[![License](https://img.shields.io/github/license/OpenDisplay-org/{{cookiecutter.project_slug}}?style=flat-square)](LICENSE)
-[![Tests](https://img.shields.io/github/actions/workflow/status/OpenDisplay-org/{{cookiecutter.project_slug}}/test.yml?style=flat-square&label=tests)](https://github.com/OpenDisplay-org/{{cookiecutter.project_slug}}/actions/workflows/test.yml)
-[![Lint](https://img.shields.io/github/actions/workflow/status/OpenDisplay-org/{{cookiecutter.project_slug}}/lint.yml?style=flat-square&label=lint)](https://github.com/OpenDisplay-org/{{cookiecutter.project_slug}}/actions/workflows/lint.yml)
+[![License](https://img.shields.io/github/license/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}?style=flat-square)](LICENSE)
+[![Tests](https://img.shields.io/github/actions/workflow/status/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}/test.yml?style=flat-square&label=tests)](https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}/actions/workflows/test.yml)
+[![Lint](https://img.shields.io/github/actions/workflow/status/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}/lint.yml?style=flat-square&label=lint)](https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}/actions/workflows/lint.yml)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json&style=flat-square)](https://github.com/astral-sh/ruff)
 [![mypy](https://img.shields.io/badge/mypy-strict-blue?style=flat-square)](https://mypy.readthedocs.io/)
 
@@ -54,7 +54,7 @@ import {{cookiecutter.package_name}}
 
 ```bash
 # Clone the repository
-git clone https://github.com/OpenDisplay-org/{{cookiecutter.project_slug}}.git
+git clone https://github.com/{{cookiecutter.github_username}}/{{cookiecutter.project_slug}}.git
 cd {{cookiecutter.project_slug}}
 
 # Install with all dependencies
