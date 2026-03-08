@@ -2,9 +2,13 @@
 
 {{cookiecutter.project_short_description}}
 
-[![Tests](https://github.com/OpenDisplay-org/{{cookiecutter.project_slug}}/actions/workflows/test.yml/badge.svg)](https://github.com/OpenDisplay-org/{{cookiecutter.project_slug}}/actions/workflows/test.yml)
-[![PyPI](https://img.shields.io/pypi/v/{{cookiecutter.project_slug}})](https://pypi.org/project/{{cookiecutter.project_slug}}/)
-[![Python Version](https://img.shields.io/pypi/pyversions/{{cookiecutter.project_slug}})](https://pypi.org/project/{{cookiecutter.project_slug}}/)
+[![PyPI](https://img.shields.io/pypi/v/{{cookiecutter.project_slug}}?style=flat-square)](https://pypi.org/project/{{cookiecutter.project_slug}}/)
+[![Python](https://img.shields.io/pypi/pyversions/{{cookiecutter.project_slug}}?style=flat-square)](https://pypi.org/project/{{cookiecutter.project_slug}}/)
+[![License](https://img.shields.io/github/license/OpenDisplay-org/{{cookiecutter.project_slug}}?style=flat-square)](LICENSE)
+[![Tests](https://img.shields.io/github/actions/workflow/status/OpenDisplay-org/{{cookiecutter.project_slug}}/test.yml?style=flat-square&label=tests)](https://github.com/OpenDisplay-org/{{cookiecutter.project_slug}}/actions/workflows/test.yml)
+[![Lint](https://img.shields.io/github/actions/workflow/status/OpenDisplay-org/{{cookiecutter.project_slug}}/lint.yml?style=flat-square&label=lint)](https://github.com/OpenDisplay-org/{{cookiecutter.project_slug}}/actions/workflows/lint.yml)
+[![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json&style=flat-square)](https://github.com/astral-sh/ruff)
+[![mypy](https://img.shields.io/badge/mypy-strict-blue?style=flat-square)](https://mypy.readthedocs.io/)
 
 ## Installation
 
