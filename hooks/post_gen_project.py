@@ -44,34 +44,35 @@ def write_license(license_id: str, year: str) -> None:
 write_license("{{cookiecutter.license}}", "{{cookiecutter.__year}}")
 
 
-def init_git() -> None:
-    try:
-        subprocess.run(["git", "init"], check=True, capture_output=True)
-        subprocess.run(["git", "add", "."], check=True, capture_output=True)
-        subprocess.run(
-            ["git", "commit", "-m", "chore: initial commit"],
-            check=True,
-            capture_output=True,
-        )
-    except subprocess.CalledProcessError as e:
-        print(f"⚠️  Could not initialise git repo: {e}")
-    except FileNotFoundError:
-        print("⚠️  git not found — skipping repo initialisation.")
+def run(cmd: list[str]) -> None:
+    subprocess.run(cmd, check=True, capture_output=True)
 
 
-def install_prek() -> None:
+def init_repo() -> None:
+    """Initialise git, lock dependencies and install hooks, then commit everything (including uv.lock)."""
     try:
-        subprocess.run(["uv", "sync", "--all-extras"], check=True, capture_output=True)
-        subprocess.run(["uv", "run", "prek", "install"], check=True, capture_output=True)
+        run(["git", "init"])
+    except (subprocess.CalledProcessError, FileNotFoundError) as e:
+        print(f"⚠️  Could not initialise git repo ({e}) — skipping setup.")
+        return
+
+    try:
+        run(["uv", "sync", "--all-extras"])
+        run(["uv", "run", "prek", "install"])
         print("✅ prek hook installed.")
     except subprocess.CalledProcessError as e:
         print(f"⚠️  Could not install prek hook: {e}")
     except FileNotFoundError:
-        print("⚠️  uv not found — skipping prek install.")
+        print("⚠️  uv not found — skipping dependency sync and prek install.")
+
+    try:
+        run(["git", "add", "."])
+        run(["git", "commit", "-m", "chore: initial commit"])
+    except subprocess.CalledProcessError as e:
+        print(f"⚠️  Could not create initial commit: {e}")
 
 
-init_git()
-install_prek()
+init_repo()
 
 print("✅ Project generated successfully!")
 print(f"📁 Project: {os.getcwd()}")
