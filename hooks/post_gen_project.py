@@ -67,8 +67,7 @@ def init_repo() -> None:
 
     try:
         run(["git", "add", "."])
-        # Hooks run on every later commit; the untouched template needs no check.
-        run(["git", "commit", "--no-verify", "-m", "chore: initial commit"])
+        run(["git", "commit", "-m", "chore: initial commit"])
     except subprocess.CalledProcessError as e:
         print(f"⚠️  Could not create initial commit: {e}")
 
